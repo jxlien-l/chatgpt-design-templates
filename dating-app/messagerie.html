@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* Styles de base */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f0f0f0;
+  font-family: sans-serif;
+}
+
+/* Styles de la messagerie */
+
+.messaging {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Section de la boîte de réception */
+
+.inbox {
+  flex: 1;
+}
+
+.inbox-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.inbox-header h1 {
+  font-size: 24px;
+}
+
+.inbox-header input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.inbox-list {
+  overflow-y: auto;
+  height: 500px;
+}
+
+.conversation {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.conversation.active {
+  background-color: #f0f0f0;
+}
+
+.conversation-image {
+  margin-right: 20px;
+}
+
+.conversation-image img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.conversation-summary h2 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.conversation-summary p {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 5px;
+}
+
+.conversation-summary span {
+  font-size: 14px;
+  color: #999;
+}
+
+/* Section de la messagerie */
+
+.message {
+  flex: 2;
+  margin-left: 50px;
+}
+
+.message-header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.message-header h2 {
+  font-size: 24px;
+}
+
+.message-list {
+  overflow-y: auto;
+  height: 400px;
+  padding: 20px;
+}
+
+.message-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.message-item p {
+  max-width: 80%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.message-item.received p {
+  background-color: #f0f0f0;
+  align-self: flex-start;
+}
+
+.message-item.sent p {
+  background-color: #3498db;
+  color: #fff;
+  align-self: flex-end;
+}
+
+.message-item span {
+  font-size: 14px;
+  color: #999;
+  margin-top: 5px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+  </style>
+</head>
+<body>
+  <div class="messaging">
+    <div class="inbox">
+      <div class="inbox-header">
+        <h1>Messagerie</h1>
+        <input type="text" placeholder="Rechercher...">
+      </div>
+      <div class="inbox-list">
+        <div class="conversation active">
+          <div class="conversation-image">
+            <img src="avatar1.jpg" alt="Avatar">
+          </div>
+          <div class="conversation-summary">
+            <h2>Nom de l'utilisateur</h2>
+            <p>Dernier message reçu</p>
+            <span>12:30</span>
+          </div>
+        </div>
+        <div class="conversation">
+          <div class="conversation-image">
+            <img src="avatar2.jpg" alt="Avatar">
+          </div>
+          <div class="conversation-summary">
+            <h2>Nom de l'utilisateur</h2>
+            <p>Dernier message reçu</p>
+            <span>11:20</span>
+          </div>
+        </div>
+        <!-- Ajoutez plus de conversations ici -->
+      </div>
+    </div>
+    <div class="message">
+      <div class="message-header">
+        <div class="conversation-image">
+          <img src="avatar1.jpg" alt="Avatar">
+        </div>
+        <div class="conversation-summary">
+          <h2>Nom de l'utilisateur</h2>
+        </div>
+      </div>
+      <div class="message-list">
+        <div class="message-item received">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, tellus id consectetur ullamcorper, nunc sapien luctus arcu, sit amet suscipit nisl enim in magna. Ut finibus, eros vel pharetra euismod, ante urna blandit elit, in laoreet augue quam eu nibh.</p>
+          <span>12:35</span>
+        </div>
+        <div class="message-item sent">
+          <p>Nullam sit amet euismod turpis, ut consequat augue. Nam sollicitudin ligula eget nibh dapibus, in rutrum eros auctor. Phasellus tempor augue at justo posuere, eu luctus lorem lacinia.</p>
+          <span>12:36</span>
+        </div>
+        <!-- Ajoutez plus de messages ici -->
+      </div>
+      <form>
+        <textarea placeholder="Écrivez votre message ici"></textarea>
+        <button>Envoyer</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

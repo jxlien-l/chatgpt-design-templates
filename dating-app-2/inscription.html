@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Site de rencontre - Précis et moderne</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Site de rencontre</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">Recherche</a></li>
+        <li><a href="#">Inscription</a></li>
+        <li><a href="#">Connexion</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>Recherche de partenaires</h2>
+      <form>
+        <fieldset>
+          <legend>Informations personnelles</legend>
+          <label for="nom">Nom :</label>
+          <input type="text" id="nom" name="nom" required>
+          <label for="prenom">Prénom :</label>
+          <input type="text" id="prenom" name="prenom" required>
+          <label for="date-naissance">Date de naissance :</label>
+          <input type="date" id="date-naissance" name="date-naissance" required>
+          <label for="genre">Genre :</label>
+          <select id="genre" name="genre" required>
+            <option value="">Choisir</option>
+            <option value="homme">Homme</option>
+            <option value="femme">Femme</option>
+            <option value="autre">Autre</option>
+          </select>
+          <label for="ville">Ville :</label>
+          <input type="text" id="ville" name="ville" required>
+        </fieldset>
+        <fieldset>
+          <legend>Informations sur la recherche</legend>
+          <label for="age-min">Âge minimum :</label>
+          <input type="number" id="age-min" name="age-min" min="18" max="100" required>
+          <label for="age-max">Âge maximum :</label>
+          <input type="number" id="age-max" name="age-max" min="18" max="100" required>
+          <label for="genre-recherche">Genre recherché :</label>
+          <select id="genre-recherche" name="genre-recherche" required>
+            <option value="">Choisir</option>
+            <option value="homme">Homme</option>
+            <option value="femme">Femme</option>
+            <option value="autre">Autre</option>
+          </select>
+          <label for="ville-recherche">Ville recherchée :</label>
+          <input type="text" id="ville-recherche" name="ville-recherche" required>
+        </fieldset>
+        <button type="submit">Rechercher</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2023 Site de rencontre - Précis et moderne</p>
+  </footer>
+</body>
+</html>

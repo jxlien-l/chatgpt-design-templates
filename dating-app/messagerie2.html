@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Messagerie - Site de rencontre</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+    /* Styles de base */
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #f0f0f0;
+	font-family: sans-serif;
+}
+
+/* Styles de la messagerie */
+
+.messaging {
+	display: flex;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 50px;
+	background-color: #fff;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Section de la boîte de réception */
+
+.inbox {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.inbox-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.inbox-header h1 {
+	font-size: 24px;
+	font-weight: 700;
+}
+
+.inbox-header input[type="text"] {
+	padding: 8px;
+	border: none;
+	border-bottom: 1px solid #ccc;
+	font-size: 16px;
+	font-weight: 500;
+	color: #333;
+	width: 200px;
+}
+
+.inbox-list {
+	flex: 1;
+	overflow-y: auto;
+}
+
+.conversation {
+	display: flex;
+	align-items: center;
+	padding: 15px;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+.conversation:hover, .conversation.active {
+	background-color: #f0f0f0;
+}
+
+.conversation-image {
+	margin-right: 15px;
+}
+
+.conversation-image img {
+	border-radius: 50%;
+}
+
+.conversation-summary {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.conversation-summary h2 {
+	font-size: 18px;
+	font-weight: 600;
+	margin-bottom: 5px;
+}
+
+.conversation-summary p {
+	font-size: 14px;
+	color: #666;
+	margin-bottom: 5px;
+}
+
+.conversation-summary span {
+	font-size: 12px;
+	color: #999;
+}
+
+/* Section des messages */
+
+.message {
+	flex: 3;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	padding: 30px;
+}
+
+.message-header {
+	display: flex;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+.message-image {
+	margin-right: 20px;
+}
+
+.message-image img {
+	border-radius: 50%;
+}
+
+.message-summary {
+	display: flex;
+	flex-direction: column;
+}
+
+.message-summary h2 {
+	font-size: 24px;
+	font-weight: 700;
+	margin-bottom: 5px;
+}
+
+.message-summary p {
+	font-size: 14px;
+	color: #999;
+}
+
+.message-list {
+	flex: 1;
+	overflow-y: auto;
+	margin-bottom: 30px;
+}
+
+.message-item {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 20px;
+}
+
+.received {
+	align-self: flex-start;
+	background-color: #f0f0f0;
+	padding: 10px 15px;
+	border-radius: 10px 10px 0 10px;
+	max-width: 80%;
+}
+
+.sent {
+	align-self: flex-end;
+	background-color: #e5f5fc;
+	padding: 10px 15px;
+	border-radius: 10px 10px 10px 0;
+	max-width: 80%;
+}
+
+.message-item p {
+	font-size: 16px;
+	color: #333;
+	margin-bottom: 5px;
+}
+
+.message-item span {
+	font-size: 12px;
+	color: #999;
+}
+
+form {
+	display: flex;
+	align-items: center;
+}
+
+textarea {
+	flex: 1;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	resize: none;
+	font-size: 16px;
+	color: #333;
+}
+
+.send-button {
+	padding: 10px 20px;
+	background-color: #4a90e2;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	margin-left: 10px;
+	font-size: 16px;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+.send-button:hover {
+	background-color: #3875d7;
+}
+
+/* Médias de tablette */
+
+@media screen and (max-width: 1024px) {
+
+	.messaging {
+		flex-direction: column;
+		padding: 30px;
+	}
+
+	.message {
+		margin-top: 30px;
+	}
+
+	.message-header {
+		flex-direction: column;
+		align-items: flex-start;
+		margin-bottom: 20px;
+	}
+
+	.message-image {
+		margin-right: 0;
+		margin-bottom: 10px;
+	}
+
+	.message-summary {
+		align-items: flex-start;
+	}
+
+	.message-list {
+		margin-bottom: 20px;
+	}
+
+}
+
+/* Médias de téléphone */
+
+@media screen and (max-width: 767px) {
+
+	.messaging {
+		padding: 20px;
+	}
+
+	.inbox-header {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.inbox-header h1 {
+		margin-bottom: 10px;
+	}
+
+	.inbox-header input[type="text"] {
+		margin-bottom: 10px;
+		width: 100%;
+	}
+
+	.conversation-summary h2 {
+		font-size: 16px;
+	}
+
+	.conversation-summary p {
+		font-size: 12px;
+	}
+
+	.conversation-summary span {
+		font-size: 10px;
+	}
+
+	.message-header {
+		flex-direction: column;
+		align-items: flex-start;
+		margin-bottom: 20px;
+	}
+
+	.message-summary h2 {
+		font-size: 20px;
+	}
+
+	.message-summary p {
+		font-size: 12px;
+	}
+
+	.message-item p {
+		font-size: 14px;
+	}
+
+	.message-item span {
+		font-size: 10px;
+	}
+
+	.send-button {
+		padding: 8px 15px;
+		font-size: 14px;
+	}
+
+}
+
+/* navbar */
+
+header {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin-right: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #4a90e2;
+}
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">Profil</a></li>
+        <li><a href="#">Messagerie</a></li>
+        <li><a href="#">Recherche</a></li>
+        <li><a href="#">Paramètres</a></li>
+      </ul>
+    </nav>
+  </header>
+	<div class="messaging">
+		<div class="inbox">
+			<div class="inbox-header">
+				<h1>Boîte de réception</h1>
+				<input type="text" placeholder="Rechercher...">
+			</div>
+			<div class="inbox-list">
+				<div class="conversation active">
+					<div class="conversation-image">
+						<img src="https://picsum.photos/50" alt="Photo de profil">
+					</div>
+					<div class="conversation-summary">
+						<h2>Nom de la personne</h2>
+						<p>Dernier message envoyé...</p>
+						<span>12h ago</span>
+					</div>
+				</div>
+				<!-- Autres conversations ici -->
+			</div>
+		</div>
+		<div class="message">
+			<div class="message-header">
+				<div class="message-image">
+					<img src="https://picsum.photos/50" alt="Photo de profil">
+				</div>
+				<div class="message-summary">
+					<h2>Nom de la personne</h2>
+					<p>En ligne</p>
+				</div>
+			</div>
+			<div class="message-list">
+				<div class="message-item received">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar felis vel nibh tristique auctor. Praesent vestibulum.</p>
+					<span>12h ago</span>
+				</div>
+				<div class="message-item sent">
+					<p>Nulla eget mi dignissim, maximus dolor et, rhoncus lorem. Nullam euismod sapien at nibh vestibulum, vitae ullamcorper nunc venenatis.</p>
+					<span>11h ago</span>
+				</div>
+				<!-- Autres messages ici -->
+			</div>
+			<form>
+				<textarea placeholder="Écrire un message..."></textarea>
+				<button type="submit"><i class="fas fa-paper-plane"></i></button>
+			</form>
+		</div>
+	</div>
+	<script src="https://kit.fontawesome.com/4de9e4b4ad.js"></script>
+</body>
+</html>

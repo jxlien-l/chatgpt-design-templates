@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mon Fil d'Actualité</title>
+  <style>
+/* Styles généraux */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f1f1f1;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1 {
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+header {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+nav li {
+  display: inline-block;
+  margin: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Styles des posts */
+.post {
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 20px auto;
+  max-width: 600px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+  background-color: #f1f1f1;
+  padding: 10px;
+}
+
+.post-header h2 {
+  margin: 0;
+}
+
+.post-header .date {
+  color: #777;
+  font-size: 12px;
+}
+
+.post-content {
+  margin-top: 20px;
+}
+
+.post-actions {
+  background-color: #f1f1f1;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.post-action {
+  display: flex;
+  align-items: center;
+}
+
+.post-action button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.post-action .counter {
+  color: #777;
+  font-size: 12px;
+}
+
+.comments {
+  margin-top: 20px;
+}
+
+.comments h3 {
+  margin: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.comments ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.comments li {
+  margin-bottom: 10px;
+}
+
+/* Styles du footer */
+footer {
+  background-color: #fff;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: auto;
+}
+
+.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode header {
+  background-color: #444;
+}
+
+.dark-mode nav a {
+  color: #fff;
+}
+
+.dark-mode .post {
+  background-color: #555;
+  color: #fff;
+}
+
+.dark-mode .post-header {
+  background-color: #444;
+}
+
+.dark-mode .post-action button {
+  background-color: #3d8f3d;
+}
+
+.dark-mode footer {
+  background-color: #444;
+}
+
+  </style>
+
+</head>
+<body>
+  <header>
+    <h1>Mon Fil d'Actualité</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">Profil</a></li>
+        <li><a href="#">Paramètres</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div id="content">
+    <div class="post">
+      <div class="post-header">
+        <h2>Titre du post</h2>
+        <span class="date">Date de publication</span>
+      </div>
+      <div class="post-content">
+        <p>Contenu du post...</p>
+      </div>
+      <div class="post-actions">
+        <div class="post-action">
+          <button class="like-btn">J'aime</button>
+          <span class="counter">0 Likes</span>
+        </div>
+        <div class="post-action">
+          <button class="comment-btn">Commenter</button>
+          <span class="counter">0 Commentaires</span>
+        </div>
+        <div class="post-action">
+          <button class="share-btn">Partager</button>
+          <span class="counter">0 Partages</span>
+        </div>
+      </div>
+      <div class="comments">
+        <h3>Commentaires</h3>
+        <ul>
+          <li>Commentaire 1</li>
+          <li>Commentaire 2</li>
+          <li>Commentaire 3</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Ajoutez d'autres posts ici -->
+    
+  </div>
+  
+  <footer>
+    <p>Mon Réseau Social &copy; 2023</p>
+  </footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Ajouter la fonctionnalité de basculement du mode sombre
+  const toggleDarkMode = () => {
+    const body = document.querySelector('body');
+    const posts = document.querySelectorAll('.post');
+    const footer = document.querySelector('footer');
+
+    body.classList.toggle('dark-mode');
+    posts.forEach(post => post.classList.toggle('dark-mode'));
+    footer.classList.toggle('dark-mode');
+  };
+
+  // Ajouter des écouteurs d'événements pour les boutons
+  const likeButtons = document.querySelectorAll('.like-btn');
+  const commentButtons = document.querySelectorAll('.comment-btn');
+  const shareButtons = document.querySelectorAll('.share-btn');
+
+  likeButtons.forEach(likeButton => {
+    const counter = likeButton.nextElementSibling;
+    let count = 0;
+
+    likeButton.addEventListener('click', () => {
+      count++;
+      counter.textContent = `${count} Likes`;
+    });
+  });
+
+  commentButtons.forEach(commentButton => {
+    const counter = commentButton.nextElementSibling;
+    let count = 0;
+
+    commentButton.addEventListener('click', () => {
+      count++;
+      counter.textContent = `${count} Commentaires`;
+    });
+  });
+
+  shareButtons.forEach(shareButton => {
+    const counter = shareButton.nextElementSibling;
+    let count = 0;
+
+    shareButton.addEventListener('click', () => {
+      count++;
+      counter.textContent = `${count} Partages`;
+    });
+  });
+});
+  </script>
+  </body>
+</html>

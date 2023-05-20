@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Votre site de rencontre</title>
+  <style>
+    /* Réinitialisation des styles par défaut */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Police de caractères */
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* En-tête */
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 64px;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 32px;
+}
+
+nav ul li {
+  margin-left: 32px;
+}
+
+nav ul li:first-child {
+  margin-left: 0;
+}
+
+nav ul li a {
+  color: #333;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: #f36;
+}
+
+/* Héros */
+#hero {
+  background-image: url("hero.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+#hero h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 32px;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#hero p {
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 64px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+}
+
+#hero button {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #f36;
+  border: none;
+  border-radius: 8px;
+  padding: 16px 32px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+#hero button:hover {
+  background-color: #e23;
+}
+
+/* Comment ça marche */
+#how-it-works {
+  background-color: #f8f8f8;
+  padding: 64px 0;
+}
+
+#how-it-works h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 64px;
+  text-align: center;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.step {
+  text-align: center;
+  max-width: 350px;
+}
+
+.step img {
+  max-width: 100%;
+  margin-bottom: 32px;
+}
+
+.step h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.step p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 32px;
+}
+/* S'inscrire */
+#signup {
+background-color: #fff;
+padding: 64px 0;
+}
+
+#signup h2 {
+font-size: 36px;
+font-weight: bold;
+margin-bottom: 64px;
+text-align: center;
+}
+
+form {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+form label {
+display: block;
+width: 100%;
+font-size: 18px;
+font-weight: bold;
+color: #333;
+margin-bottom: 8px;
+}
+
+form input,
+form select,
+form textarea {
+display: block;
+width: 100%;
+padding: 16px;
+margin-bottom: 32px;
+font-size: 18px;
+border: none;
+border-radius: 8px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form select {
+appearance: none;
+background-color: #fff;
+background-image: url("down-arrow.svg");
+background-repeat: no-repeat;
+background-position: right 16px center;
+background-size: 16px 16px;
+padding-right: 48px;
+}
+
+form textarea {
+height: 200px;
+}
+
+form button[type="submit"] {
+font-size: 24px;
+font-weight: bold;
+color: #fff;
+background-color: #f36;
+border: none;
+border-radius: 8px;
+padding: 16px 32px;
+cursor: pointer;
+transition: background-color 0.2s ease-in-out;
+}
+
+form button[type="submit"]:hover {
+background-color: #e23;
+}
+
+/* Footer */
+footer {
+background-color: #333;
+color: #fff;
+padding: 32px;
+text-align: center;
+}
+
+footer p {
+margin-bottom: 16px;
+}
+
+footer a {
+color: #fff;
+text-decoration: none;
+}
+
+footer a:hover {
+text-decoration: underline;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#how-it-works">Comment ça marche</a></li>
+        <li><a href="#signup">S'inscrire</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero">
+      <h1>Faites des rencontres qui comptent</h1>
+      <p>Trouvez des personnes qui partagent les mêmes centres d'intérêts que vous. Notre algorithme de matching analyse votre personnalité et vos préférences pour vous présenter les personnes les plus compatibles avec vous.</p>
+      <button type="button">Commencer</button>
+    </section>
+
+    <section id="how-it-works">
+      <h2>Comment ça marche ?</h2>
+      <div class="steps">
+        <div class="step">
+          <img src="step1.png" alt="Étape 1">
+          <h3>Créez votre profil</h3>
+          <p>Répondez à des questions pour décrire votre personnalité, vos centres d'intérêts et vos préférences de rencontre.</p>
+        </div>
+        <div class="step">
+          <img src="step2.png" alt="Étape 2">
+          <h3>Recevez vos matchs</h3>
+          <p>Notre algorithme de matching analyse vos réponses et vous présente les personnes les plus compatibles avec vous.</p>
+        </div>
+        <div class="step">
+          <img src="step3.png" alt="Étape 3">
+          <h3>Communiquez avec vos matchs</h3>
+          <p>Connectez-vous avec les personnes qui ont les mêmes centres d'intérêts que vous et commencez une nouvelle aventure.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="signup">
+      <h2>Prêt à commencer ?</h2>
+      <form>
+        <input type="email" placeholder="Adresse e-mail" required>
+        <input type="password" placeholder="Mot de passe" required>
+        <button type="submit">S'inscrire</button>
+      </form>
+      <p>Déjà inscrit ? <a href="#">Connectez-vous</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Votre site de rencontre. Tous droits réservés.</p>
+  </footer>
+</body>
+</html>
